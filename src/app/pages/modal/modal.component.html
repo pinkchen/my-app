@@ -1,0 +1,38 @@
+<button type="button" class="btn btn-primary" (click)="parentModal.show()">Open parent modal</button>
+<div class="modal fade" bsModal #parentModal="bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">First modal</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="parentModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <button type="button" class="btn btn-primary" (click)="childModal.show()">Open second modal</button>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<div class="modal fade" bsModal #childModal="bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Second modal</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="childModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+				<p>hello {{person.sex}}, Selected: {{selected.join(',')}}</p>
+				<input type="radio" name="sex" value="male" [(ngModel)]="person.sex" />男
+				<input type="radio" name="sex" value="female" [(ngModel)]="person.sex" />女
+				<ng-container *ngFor="let color of colors; let id = index">
+					<input type="checkbox" (click)="updateSelect($event, color.name, id)"/> <span>{{ color.name }}</span>
+				</ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+ 

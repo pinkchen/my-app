@@ -1,0 +1,30 @@
+<div class="form-group">
+  <label>兴趣爱好:</label>
+  <div class="checkbox">
+    <label *ngFor="let item of hobbyList" class="checkbox-inline">
+      <input type="checkbox" (click)="selectCheckbox($event.target.checked, item)"/>{{item}}
+    </label>
+  </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<pre class='card card-block card-header'>{{singleModel}}</pre>
+<pre class="card card-block card-header">{{singleModel}}</pre>
+<button type="button" class="btn btn-primary"
+        btnCheckbox
+        [(ngModel)]="singleModel"
+        btnCheckboxTrue="1" btnCheckboxFalse="0">
+  Single Toggle
+</button>
